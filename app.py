@@ -167,11 +167,11 @@ async def end_trash_history():
     return JSONResponse({"message": "Trash history cleared successfully"})
 
 # HTML Form to Upload Image and Display Result
-@app.get("/test", response_class=HTMLResponse)
+@app.get("/dashboard", response_class=HTMLResponse)
 async def get_test_page(request: Request):
     return templates.TemplateResponse("upload.html", {"request": request})
 
-@app.post("/test", response_class=HTMLResponse)
+@app.post("/dashboard", response_class=HTMLResponse)
 async def handle_test(request: Request, file: UploadFile = File(...)):
     try:
         image = await file.read()
